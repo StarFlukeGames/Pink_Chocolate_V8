@@ -51,21 +51,6 @@
 			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/a1f11a3c-1b51-4417-9e2a-4ec1e60f7e67"
 		},
 		{
-			"Name": "AutoSizeComments",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/ae89a2c4ab384de0a3f213b23de324f3"
-		},
-		{
-			"Name": "AutoFootstep",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/66cea07913a248bba0ada8dd73c809b9"
-		},
-		{
-			"Name": "PTMTool",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/b14aed5c-5aed-411d-ad36-628dfce5dd78"
-		},
-		{
 			"Name": "DataSerialization",
 			"Enabled": false,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/51bfff9f8bc34c3d8072b31455965276"
@@ -207,11 +192,6 @@
 			"Name": "LogViewer",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/4853cdc0a6a54d7b9c0712cbe72f6b68"
-		},
-		{
-			"Name": "RefExplorer",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/b9d5568cba4845749f57fd0e027d447f"
 		}
 	]
 }
