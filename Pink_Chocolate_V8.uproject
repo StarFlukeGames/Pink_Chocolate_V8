@@ -11,6 +11,11 @@
 			"AdditionalDependencies": [
 				"Engine"
 			]
+		},
+		{
+			"Name": "GdReleaseA",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
 		}
 	],
 	"Plugins": [
@@ -364,6 +369,11 @@
 			"Name": "YasiuMath",
 			"Enabled": true,
 			"MarketplaceURL": "https://www.fab.com/listings/6f23ad4c-25b9-4818-a9eb-118e661d3032"
+		},
+		{
+			"Name": "ArrayHelper",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/813e339b92ad4cf587a4cef56bec7020"
 		}
 	]
 }

@@ -10,6 +10,7 @@ public class Pink_Chocolate_V8Target : TargetRules
 		Type = TargetType.Game;
 		DefaultBuildSettings = BuildSettingsVersion.V7;
 
+		ExtraModuleNames.Add("GdReleaseA");
 		ExtraModuleNames.AddRange( new string[] { "Pink_Chocolate_V8" } );
 	}
 }

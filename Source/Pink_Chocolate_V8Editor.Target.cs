@@ -10,6 +10,7 @@ public class Pink_Chocolate_V8EditorTarget : TargetRules
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V7;
 
+		ExtraModuleNames.Add("GdReleaseA");
 		ExtraModuleNames.AddRange( new string[] { "Pink_Chocolate_V8" } );
 	}
 }
