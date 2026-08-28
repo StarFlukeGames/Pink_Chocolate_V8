@@ -197,6 +197,11 @@
 			"Name": "EnhancedCodeFlow",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/0e9dd2a8f807456da0fe6af280ab795c"
+		},
+		{
+			"Name": "EnhancedInputSequence",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/c33feca902ef41829dc5ea8c64bec183"
 		}
 	]
 }
