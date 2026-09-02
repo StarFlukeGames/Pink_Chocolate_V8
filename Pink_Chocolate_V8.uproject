@@ -202,6 +202,255 @@
 			"Name": "EnhancedInputSequence",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/c33feca902ef41829dc5ea8c64bec183"
+		},
+		{
+			"Name": "NinjaInput",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/cde3c8fb-85be-44a3-95c4-dbccecac028b"
+		},
+		{
+			"Name": "PTMTool",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/b14aed5c-5aed-411d-ad36-628dfce5dd78"
+		},
+		{
+			"Name": "ActionsExtension",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/2924990b22c1452aa20a21af60c4aa12"
+		},
+		{
+			"Name": "ArrayHelper",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/813e339b92ad4cf587a4cef56bec7020"
+		},
+		{
+			"Name": "ArrayUtility",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/88bb3b11-55cc-4943-bacd-b05ca5694fe9"
+		},
+		{
+			"Name": "AttributesExtension",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/1f0ba37099a14e228a1ce5e4891ed70a"
+		},
+		{
+			"Name": "AutoFootstep",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/66cea07913a248bba0ada8dd73c809b9"
+		},
+		{
+			"Name": "AutoSizeComments",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/ae89a2c4ab384de0a3f213b23de324f3"
+		},
+		{
+			"Name": "BlendPosesByTag",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/61ec1d65-f389-44c1-ad9e-398ac5f2fa4f"
+		},
+		{
+			"Name": "CapsuleTraceRotation",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/1abd5424c39d426c81068388a39a61c3"
+		},
+		{
+			"Name": "ChannelMachine",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/1203c14fac16490bacab6a7d3577edff",
+			"SupportedTargetPlatforms": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "Charon",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/b4231a79707e491ba96b9842d971e6f4"
+		},
+		{
+			"Name": "CheckAppInstance",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/6a008b19e3ab40fba3f35125fc871373"
+		},
+		{
+			"Name": "ControlFlows",
+			"Enabled": true
+		},
+		{
+			"Name": "CruxUtilities",
+			"Enabled": true
+		},
+		{
+			"Name": "C3_LAA",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/50a1acc35b5f438fb5c11dcc6b58c2ad"
+		},
+		{
+			"Name": "DialogueComponentEditor",
+			"Enabled": false
+		},
+		{
+			"Name": "EstapeTools",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/e1a5a090592c454c816b40452e8cc8de"
+		},
+		{
+			"Name": "ExtendedBlueprints",
+			"Enabled": true
+		},
+		{
+			"Name": "FactionsExtension",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/29a33bd0c38e4b8f9626f495bb47dca8"
+		},
+		{
+			"Name": "FastNoiseGenerator",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/527737f42da544e9abf8607a40495fbd"
+		},
+		{
+			"Name": "FlyTo",
+			"Enabled": false,
+			"MarketplaceURL": "https://www.fab.com/listings/41f46910-029a-49cb-9d21-629e89febfcb"
+		},
+		{
+			"Name": "GameManagers",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/"
+		},
+		{
+			"Name": "GlobalEvents",
+			"Enabled": true
+		},
+		{
+			"Name": "Glyphic",
+			"Enabled": true
+		},
+		{
+			"Name": "ImageResizUEr",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/670be04026664663875aadd4dea45b9d"
+		},
+		{
+			"Name": "IniConfig",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/36b2129b-6724-4cb1-8443-022c64fb2a3a"
+		},
+		{
+			"Name": "ItemData",
+			"Enabled": true
+		},
+		{
+			"Name": "LGUI",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/92c868e93e1d4dd596f87b200102f0cf"
+		},
+		{
+			"Name": "LightExplorer",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/4dc7591f494343f1ae6cac5192bb1f62"
+		},
+		{
+			"Name": "LowEntryExtStdLib",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/846c2ad08f164f45b0335ecebf85361e"
+		},
+		{
+			"Name": "DynamicMaterial",
+			"Enabled": true
+		},
+		{
+			"Name": "MetaxisAITools",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/a3f7960c-b967-4313-a4b1-d22348b84e45"
+		},
+		{
+			"Name": "NinjaGAS",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/5200fc7c-2cb4-4a2e-a204-8200cebab05d"
+		},
+		{
+			"Name": "ObjectDistribution",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/5a78cc6e9a1549d0bb05e8d906dac776"
+		},
+		{
+			"Name": "OmniToolbox",
+			"Enabled": true,
+			"MarketplaceURL": "https://www.fab.com/portal/listings/ec3db931-509e-4c1b-b883-0831d86c8077/"
+		},
+		{
+			"Name": "OperatorStack",
+			"Enabled": true
+		},
+		{
+			"Name": "OutlinerShortcuts",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/f3c4bf65839d429cb8096e97787e04ed"
+		},
+		{
+			"Name": "Paper2DPlus",
+			"Enabled": false
+		},
+		{
+			"Name": "PIDController",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/b4fffe1b1c9c4bb9b30160cd84ee6077"
+		},
+		{
+			"Name": "PropertyAnimator",
+			"Enabled": true
+		},
+		{
+			"Name": "PropertyAnimatorCore",
+			"Enabled": true
+		},
+		{
+			"Name": "RefExplorer",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/b9d5568cba4845749f57fd0e027d447f"
+		},
+		{
+			"Name": "RenameTool",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/d77bb1be-1ec6-4a1e-9e63-cfcb25caf38b"
+		},
+		{
+			"Name": "RyHelpfulHelpers",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/25653d83f1f84775b09ed750659f9ca3"
+		},
+		{
+			"Name": "SaveExtension",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/91084f43b68047ac8da6fc88a7467936"
+		},
+		{
+			"Name": "StateGraph",
+			"Enabled": true
+		},
+		{
+			"Name": "SubsystemBrowserPlugin",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/f1ba87b348774d338e75d25ddbc46b98"
+		},
+		{
+			"Name": "UpdateRateOptimisationBlueprints",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/59351c01b20248379fef0fe48de04e97"
+		},
+		{
+			"Name": "Volumetrics",
+			"Enabled": true
+		},
+		{
+			"Name": "WinUtilities",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/8366816a-335d-451eb128-5de9d720055f"
+		},
+		{
+			"Name": "YasiuMath",
+			"Enabled": true,
+			"MarketplaceURL": "https://www.fab.com/listings/6f23ad4c-25b9-4818-a9eb-118e661d3032"
 		}
 	]
 }

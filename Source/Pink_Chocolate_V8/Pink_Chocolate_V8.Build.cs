@@ -6,9 +6,21 @@ public class Pink_Chocolate_V8 : ModuleRules
 {
 	public Pink_Chocolate_V8(ReadOnlyTargetRules Target) : base(Target)
 	{
+		CppStandard = CppStandardVersion.Cpp20;
+		
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+		PublicDependencyModuleNames.AddRange(new string[]
+		{
+			"Core", "CoreUObject", "Engine", "InputCore", 
+			"Niagara",
+			"AssetRegistry",
+			"EnhancedInput",
+			"GameplayTags",
+			"Charon",
+			"ItemDataRuntime",
+			"GlobalEvents"
+		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
