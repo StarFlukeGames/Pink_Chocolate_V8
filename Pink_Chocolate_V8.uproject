@@ -52,7 +52,7 @@
 		},
 		{
 			"Name": "DataSerialization",
-			"Enabled": false,
+			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/51bfff9f8bc34c3d8072b31455965276"
 		},
 		{
@@ -263,7 +263,7 @@
 		},
 		{
 			"Name": "Charon",
-			"Enabled": true,
+			"Enabled": false,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/b4231a79707e491ba96b9842d971e6f4"
 		},
 		{
@@ -451,6 +451,23 @@
 			"Name": "YasiuMath",
 			"Enabled": true,
 			"MarketplaceURL": "https://www.fab.com/listings/6f23ad4c-25b9-4818-a9eb-118e661d3032"
+		},
+		{
+			"Name": "BlendStack",
+			"Enabled": true
+		},
+		{
+			"Name": "BlueprintFileUtils",
+			"Enabled": true
+		},
+		{
+			"Name": "FileSDK",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/4f737815666c4e7dabf2043fb55a8419"
+		},
+		{
+			"Name": "ClonerEffector",
+			"Enabled": true
 		}
 	]
 }

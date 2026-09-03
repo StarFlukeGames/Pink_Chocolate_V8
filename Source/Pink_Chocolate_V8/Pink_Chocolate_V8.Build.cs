@@ -17,7 +17,6 @@ public class Pink_Chocolate_V8 : ModuleRules
 			"AssetRegistry",
 			"EnhancedInput",
 			"GameplayTags",
-			"Charon",
 			"ItemDataRuntime",
 			"GlobalEvents"
 		});
