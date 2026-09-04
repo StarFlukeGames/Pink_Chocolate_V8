@@ -15,10 +15,15 @@ public class Pink_Chocolate_V8 : ModuleRules
 			"Core", "CoreUObject", "Engine", "InputCore", 
 			"Niagara",
 			"AssetRegistry",
+			"GameplayAbilities",
 			"EnhancedInput",
 			"GameplayTags",
+			"NinjaInput",
+			"NinjaGAS",
 			"ItemDataRuntime",
-			"GlobalEvents"
+			"GlobalEvents",
+			"Attributes",
+			"ActionsExtension"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });

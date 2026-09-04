@@ -4,27 +4,31 @@
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
 #include "Data/PCCOptionTypes.h"
+#include <optional>
 #include "PCCustomizationCatalog.generated.h"
 
 /**
  * UPCCustomizationCatalog
- * Designer-authored master database of categories and cosmetic options [cite: 107].
+ * Authoritative, non-volatile database of all category schemas and options.
  */
-UCLASS(BlueprintType, Blueprintable)
+UCLASS(BlueprintType, Const, Blueprintable)
 class PINK_CHOCOLATE_V8_API UPCCustomizationCatalog : public UPrimaryDataAsset
 {
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Customization Schema")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "SIBHDS Catalog", meta = (TitleProperty = "CategoryTag"))
 	TArray<FPCCategoryDefinition> Categories;
 
 	/**
-	 * Resolves an option item using safe, out-of-bounds protected indexing [cite: 107].
+	 * Monadic C++23 lookup of a category by its Gameplay Tag.
+	 * Retains const-safety and explicitly avoids raw pointer leaks.
 	 */
-	UFUNCTION(BlueprintPure, Category = "Customization Schema")
+	[[nodiscard]] std::optional<FPCCategoryDefinition> FindCategoryByTag(const FGameplayTag& CategoryTag) const noexcept;
+
+	UFUNCTION(BlueprintPure, Category = "SIBHDS Catalog")
 	bool GetOptionAtIndex(FGameplayTag CategoryTag, int32 Index, FPCOptionItem& OutOption) const;
 
-	UFUNCTION(BlueprintPure, Category = "Customization Schema")
+	UFUNCTION(BlueprintPure, Category = "SIBHDS Catalog")
 	int32 GetMaxOptionsForCategory(FGameplayTag CategoryTag) const;
 };

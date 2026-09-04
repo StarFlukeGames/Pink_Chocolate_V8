@@ -3,62 +3,79 @@
 
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
-#include "Engine/SkeletalMesh.h"
-#include "Materials/MaterialInterface.h"
-#include "GameFramework/Pawn.h"
+#include "UObject/SoftObjectPath.h"
+#include <concepts>
+#include <type_traits>
 #include "PCCOptionTypes.generated.h"
 
+/**
+ * Compile-time C++23 concept ensuring that only UObject-derived 
+ * classes can be targeted by our polymorphic resolution handlers.
+ */
+template <typename T>
+concept UObjectDerived = std::is_base_of_v<UObject, T>;
+
+/**
+ * EPCOptionType
+ * Specifies the underlying asset class of the polymorphic Soft Path.
+ */
 UENUM(BlueprintType)
 enum class EPCOptionType : uint8
 {
-    Material       UMETA(DisplayName = "Material Override"),
-    SkeletalMesh   UMETA(DisplayName = "Skeletal Mesh Swap"),
-    CharacterClass UMETA(DisplayName = "Character Class Roster Swap")
+    Material          UMETA(DisplayName = "Material Override"),
+    SkeletalMesh      UMETA(DisplayName = "Skeletal Mesh Attachment"),
+    NiagaraSystem     UMETA(DisplayName = "Niagara VFX System"),
+    CharacterClass    UMETA(DisplayName = "Character Class Roster Swap"),
+    BlueprintWrapper  UMETA(DisplayName = "Actor Blueprint Wrapper")
 };
 
 /**
  * FPCOptionItem
- * Represents a single customizable cosmetic option or roster pawn [cite: 107, 300].
+ * Collapsed, non-verbose option structure with a single polymorphic soft asset path.
  */
 USTRUCT(BlueprintType)
-struct PINK_CHOCOLATE_V8_API FPCOptionItem
+struct FPCOptionItem
 {
     GENERATED_BODY()
 
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Customization")
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sovereign Customization | Option")
     FName OptionId;
 
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Customization")
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sovereign Customization | Option")
     FText DisplayName;
 
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Customization", meta = (AllowedClasses = "/Script/Engine.SkeletalMesh"))
-    TSoftObjectPtr<USkeletalMesh> MeshAsset;
+    /**
+     * Polymorphic asset pointer. Points to materials, meshes, Niagara emitters, or classes.
+     * Avoids verbose parallel pointer definitions by resolving path dynamically at runtime.
+     */
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sovereign Customization | Option")
+    FSoftObjectPath AssetPath;
 
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Customization", meta = (AllowedClasses = "/Script/Engine.MaterialInterface"))
-    TSoftObjectPtr<UMaterialInterface> MaterialAsset;
-
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Customization")
-    TSoftClassPtr<APawn> CharacterClass;
+    /** Safe C++23 constexpr validator */
+    [[nodiscard]] constexpr bool IsValid() const noexcept
+    {
+        return !OptionId.IsNone() && AssetPath.IsValid();
+    }
 };
 
 /**
  * FPCCategoryDefinition
- * Defines an entire customization category and its options array [cite: 4, 107].
+ * Pairs an extensible tag category with its type constraint and option set.
  */
 USTRUCT(BlueprintType)
-struct PINK_CHOCOLATE_V8_API FPCCategoryDefinition
+struct FPCCategoryDefinition
 {
     GENERATED_BODY()
 
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Customization")
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sovereign Customization | Category")
     FGameplayTag CategoryTag;
 
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Customization")
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sovereign Customization | Category")
     FText DisplayName;
 
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Customization")
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sovereign Customization | Category")
     EPCOptionType OptionType = EPCOptionType::Material;
 
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Customization")
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sovereign Customization | Category")
     TArray<FPCOptionItem> Options;
 };
