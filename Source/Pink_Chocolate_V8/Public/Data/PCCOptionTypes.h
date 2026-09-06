@@ -9,7 +9,7 @@
 #include "PCCOptionTypes.generated.h"
 
 /**
- * Compile-time C++23 concept ensuring that only UObject-derived 
+ * Compile-time C++23 concept ensuring that only UObject-derived
  * classes can be targeted by our polymorphic resolution handlers.
  */
 template <typename T>
@@ -26,15 +26,16 @@ enum class EPCOptionType : uint8
     SkeletalMesh      UMETA(DisplayName = "Skeletal Mesh Attachment"),
     NiagaraSystem     UMETA(DisplayName = "Niagara VFX System"),
     CharacterClass    UMETA(DisplayName = "Character Class Roster Swap"),
-    BlueprintWrapper  UMETA(DisplayName = "Actor Blueprint Wrapper")
+    BlueprintWrapper  UMETA(DisplayName = "Blueprint Wrapper Attachment")
 };
 
 /**
  * FPCOptionItem
  * Collapsed, non-verbose option structure with a single polymorphic soft asset path.
+ * Avoids verbose parallel pointer definitions by resolving path dynamically at runtime.
  */
 USTRUCT(BlueprintType)
-struct FPCOptionItem
+struct PINK_CHOCOLATE_V8_API FPCOptionItem
 {
     GENERATED_BODY()
 
@@ -45,14 +46,12 @@ struct FPCOptionItem
     FText DisplayName;
 
     /**
-     * Polymorphic asset pointer. Points to materials, meshes, Niagara emitters, or classes.
-     * Avoids verbose parallel pointer definitions by resolving path dynamically at runtime.
+     * Polymorphic asset pointer. Points to materials, Niagara emitters, classes, or wrappers.
      */
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sovereign Customization | Option")
     FSoftObjectPath AssetPath;
-
-    /** Safe C++23 constexpr validator */
-    [[nodiscard]] constexpr bool IsValid() const noexcept
+    
+    [[nodiscard]] bool IsValid() const noexcept
     {
         return !OptionId.IsNone() && AssetPath.IsValid();
     }
@@ -63,7 +62,7 @@ struct FPCOptionItem
  * Pairs an extensible tag category with its type constraint and option set.
  */
 USTRUCT(BlueprintType)
-struct FPCCategoryDefinition
+struct PINK_CHOCOLATE_V8_API FPCCategoryDefinition
 {
     GENERATED_BODY()
 

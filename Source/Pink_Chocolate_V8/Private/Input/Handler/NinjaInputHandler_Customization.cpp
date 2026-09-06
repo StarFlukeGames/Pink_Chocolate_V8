@@ -3,28 +3,28 @@
 #include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystemComponent.h"
 #include "Components/NinjaInputManagerComponent.h"
-#include "GameFramework/PlayerController.h"
 #include "GameFramework/PlayerState.h"
 
 UNinjaInputHandler_Customization::UNinjaInputHandler_Customization()
 {
-	bCanBeBuffered = true;
-	BufferChannelTag = FGameplayTag::RequestGameplayTag(TEXT("Input.Buffer.Customization"));
+	// Restrict this class to stateless execution. Zero runtime member allocations.
 }
 
-void UNinjaInputHandler_Customization::HandleTriggeredEvent_Implementation(
+void UNinjaInputHandler_Customization::HandleInput_Implementation(
 	UNinjaInputManagerComponent* Manager,
-	const FInputActionValue& Value,
-	const UInputAction* InputAction) const
+	const FInputActionInstance& ActionInstance,
+	const ETriggerEvent TriggerEvent) const
 {
 	if (!Manager) return;
 
-	// Reject processing if input value is non-boolean or inactive
-	if (!Value.Get<bool>()) return;
+	// Filter digital trigger state (only execute on Pressed/Triggered events)
+	bool bIsPressed = ActionInstance.GetValue().Get<bool>();
+	if (!bIsPressed) return;
 
-	if (const APlayerController* PC = Cast<APlayerController>(Manager->GetController()); !PC) return;
+	AController* Controller = Manager->GetController();
+	if (!Controller) return;
 
-	APawn* ControlledPawn = Manager->GetPawn();
+	APawn* ControlledPawn = Controller->GetPawn();
 	if (!ControlledPawn) return;
 
 	APlayerState* PS = ControlledPawn->GetPlayerState();
@@ -33,18 +33,25 @@ void UNinjaInputHandler_Customization::HandleTriggeredEvent_Implementation(
 	UAbilitySystemComponent* ASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(PS);
 	if (!ASC) return;
 
-	// Query matched tags bound to this input configuration
-	FGameplayTagContainer TargetTags;
-	GetGameplayTags(TargetTags);
+	// Fetch tags via GetInputTags() on the handler instance
+	
+	FGameplayTagContainer InputTags;
+	if (const UInputAction* SourceAction = ActionInstance.GetSourceAction())
+	{
+		if (const IGameplayTagAssetInterface* TagInterface = Cast<IGameplayTagAssetInterface>(SourceAction))
+		{
+			TagInterface->GetOwnedGameplayTags(InputTags);
+		}
+	}
 
-	for (const FGameplayTag& Tag : TargetTags)
+	// Marshal the mapped tags to the active PlayerState's ASC as Gameplay Events.
+	for (const FGameplayTag& Tag : InputTags)
 	{
 		FGameplayEventData Payload;
 		Payload.EventTag = Tag;
 		Payload.Instigator = ControlledPawn;
 		Payload.Target = PS;
 
-		// Propose transaction to ASC; handoff boundary prevents direct state mutation from input thread
 		ASC->HandleGameplayEvent(Tag, &Payload);
 	}
 }

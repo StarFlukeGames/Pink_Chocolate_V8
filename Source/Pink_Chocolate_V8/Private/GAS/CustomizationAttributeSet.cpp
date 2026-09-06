@@ -1,5 +1,4 @@
 // Copyright (c) StarFluke Fallen World. All Rights Reserved.
-#include "GAS/CustomizationAttributeSet.cpp"
 #include "GAS/CustomizationAttributeSet.h"
 
 UCustomizationAttributeSet::UCustomizationAttributeSet()
