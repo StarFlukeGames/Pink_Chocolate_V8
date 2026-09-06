@@ -10,18 +10,19 @@ UNinjaInputHandler_Customization::UNinjaInputHandler_Customization()
 	// Restrict this class to stateless execution. Zero runtime member allocations.
 }
 
-void UNinjaInputHandler_Customization::HandleInput_Implementation(
+void UNinjaInputHandler_Customization::HandleTriggeredEvent_Implementation(
 	UNinjaInputManagerComponent* Manager,
-	const FInputActionInstance& ActionInstance,
-	const ETriggerEvent TriggerEvent) const
+	const FInputActionValue& Value,
+	const UInputAction* InputAction,
+	float ElapsedTime) const
 {
 	if (!Manager) return;
 
-	// Filter digital trigger state (only execute on Pressed/Triggered events)
-	bool bIsPressed = ActionInstance.GetValue().Get<bool>();
-	if (!bIsPressed) return;
+	// Filter digital false/release states
+	if (!Value.Get<bool>()) return;
 
-	AController* Controller = Manager->GetController();
+	// Retrieve controller reference directly from Manager
+	const AController* Controller = Manager->GetController();
 	if (!Controller) return;
 
 	APawn* ControlledPawn = Controller->GetPawn();
@@ -32,19 +33,26 @@ void UNinjaInputHandler_Customization::HandleInput_Implementation(
 
 	UAbilitySystemComponent* ASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(PS);
 	if (!ASC) return;
-
-	// Fetch tags via GetInputTags() on the handler instance
 	
 	FGameplayTagContainer InputTags;
-	if (const UInputAction* SourceAction = ActionInstance.GetSourceAction())
+
+	if (InputAction)
 	{
-		if (const IGameplayTagAssetInterface* TagInterface = Cast<IGameplayTagAssetInterface>(SourceAction))
+		if (const IGameplayTagAssetInterface* TagInterface = Cast<IGameplayTagAssetInterface>(InputAction))
 		{
 			TagInterface->GetOwnedGameplayTags(InputTags);
 		}
 	}
 
-	// Marshal the mapped tags to the active PlayerState's ASC as Gameplay Events.
+	// Fallback: Check if this Handler object itself has tags attached
+	if (InputTags.IsEmpty())
+	{
+		if (const IGameplayTagAssetInterface* HandlerTagInterface = Cast<IGameplayTagAssetInterface>(this))
+		{
+			HandlerTagInterface->GetOwnedGameplayTags(InputTags);
+		}
+	}
+	
 	for (const FGameplayTag& Tag : InputTags)
 	{
 		FGameplayEventData Payload;
@@ -52,6 +60,6 @@ void UNinjaInputHandler_Customization::HandleInput_Implementation(
 		Payload.Instigator = ControlledPawn;
 		Payload.Target = PS;
 
-		ASC->HandleGameplayEvent(Tag, &Payload);
+		ASC->HandleGameplayEvent(Tag, &Payload); //
 	}
 }

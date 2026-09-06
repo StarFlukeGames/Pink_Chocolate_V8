@@ -17,10 +17,6 @@ class PINK_CHOCOLATE_V8_API UNinjaInputHandler_Customization : public UNinjaInpu
 public:
 	UNinjaInputHandler_Customization();
 	
-	
-
-	virtual void HandleInput_Implementation(
-		UNinjaInputManagerComponent* Manager,
-		const FInputActionInstance& ActionInstance,
-		const ETriggerEvent TriggerEvent) const;
+	virtual void HandleTriggeredEvent_Implementation(UNinjaInputManagerComponent* Manager, const FInputActionValue& Value,
+		const UInputAction* InputAction, float ElapsedTime) const override;
 };

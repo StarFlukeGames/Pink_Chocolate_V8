@@ -7,7 +7,7 @@
 APCPlayerStateCosmetics::APCPlayerStateCosmetics()
 {
     bReplicates = true;
-    NetUpdateFrequency = 100.0f; // Raise to guarantee sub-millisecond tag propagation
+    SetNetUpdateFrequency(100.0f); // Raise to guarantee sub-millisecond tag propagation
 
     AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
     AbilitySystemComponent->SetIsReplicated(true);
