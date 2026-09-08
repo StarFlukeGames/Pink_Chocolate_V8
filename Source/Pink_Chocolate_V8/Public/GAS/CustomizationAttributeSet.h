@@ -14,7 +14,7 @@
 
 /**
  * UCustomizationAttributeSet
- * Exposes cosmetic index attributes to the Gameplay Ability System.
+ * Exposes cosmetic index attributes to the Gameplay Ability System [cite: 26].
  */
 UCLASS()
 class PINK_CHOCOLATE_V8_API UCustomizationAttributeSet : public UAttributeSet

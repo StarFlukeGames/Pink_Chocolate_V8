@@ -3,13 +3,13 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
-#include "Data/PCCOptionTypes.h"
+#include "Data/FOSibhdsTypes.h"
 #include <optional>
 #include "PCCustomizationCatalog.generated.h"
 
 /**
  * UPCCustomizationCatalog
- * Authoritative, non-volatile database of all category schemas and options.
+ * Authoritative, non-volatile database of all category schemas and options [cite: 26].
  */
 UCLASS(BlueprintType, Const, Blueprintable)
 class PINK_CHOCOLATE_V8_API UPCCustomizationCatalog : public UPrimaryDataAsset

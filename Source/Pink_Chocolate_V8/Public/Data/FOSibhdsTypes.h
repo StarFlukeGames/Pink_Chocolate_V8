@@ -6,10 +6,10 @@
 #include "UObject/SoftObjectPath.h"
 #include <concepts>
 #include <type_traits>
-#include "PCCOptionTypes.generated.h"
+#include "FOSibhdsTypes.generated.h"
 
 /**
- * Compile-time C++23 concept ensuring that only UObject-derived
+ * Compile-time C++23 concept ensuring that only UObject-derived 
  * classes can be targeted by our polymorphic resolution handlers.
  */
 template <typename T>
@@ -17,7 +17,7 @@ concept UObjectDerived = std::is_base_of_v<UObject, T>;
 
 /**
  * EPCOptionType
- * Specifies the underlying asset class of the polymorphic Soft Path.
+ * Specifies the underlying asset class of the polymorphic Soft Path [cite: 26].
  */
 UENUM(BlueprintType)
 enum class EPCOptionType : uint8
@@ -26,13 +26,13 @@ enum class EPCOptionType : uint8
     SkeletalMesh      UMETA(DisplayName = "Skeletal Mesh Attachment"),
     NiagaraSystem     UMETA(DisplayName = "Niagara VFX System"),
     CharacterClass    UMETA(DisplayName = "Character Class Roster Swap"),
-    BlueprintWrapper  UMETA(DisplayName = "Blueprint Wrapper Attachment")
+    BlueprintWrapper  UMETA(DisplayName = "Actor Blueprint Wrapper")
 };
 
 /**
  * FPCOptionItem
- * Collapsed, non-verbose option structure with a single polymorphic soft asset path.
- * Avoids verbose parallel pointer definitions by resolving path dynamically at runtime.
+ * Collapsed, non-verbose option structure with a single polymorphic soft asset path [cite: 26].
+ * Replaced in memory during bulk ingestion via the generic reflection-driven pipeline [cite: 2].
  */
 USTRUCT(BlueprintType)
 struct PINK_CHOCOLATE_V8_API FPCOptionItem
@@ -46,7 +46,8 @@ struct PINK_CHOCOLATE_V8_API FPCOptionItem
     FText DisplayName;
 
     /**
-     * Polymorphic asset pointer. Points to materials, Niagara emitters, classes, or wrappers.
+     * Polymorphic asset pointer. Points to materials, meshes, Niagara emitters, or classes [cite: 26].
+     * Avoids verbose parallel pointer definitions by resolving path dynamically at runtime [cite: 2].
      */
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sovereign Customization | Option")
     FSoftObjectPath AssetPath;
@@ -59,7 +60,7 @@ struct PINK_CHOCOLATE_V8_API FPCOptionItem
 
 /**
  * FPCCategoryDefinition
- * Pairs an extensible tag category with its type constraint and option set.
+ * Pairs an extensible tag category with its type constraint and option set [cite: 26].
  */
 USTRUCT(BlueprintType)
 struct PINK_CHOCOLATE_V8_API FPCCategoryDefinition
