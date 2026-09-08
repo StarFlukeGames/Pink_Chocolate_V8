@@ -468,6 +468,10 @@
 		{
 			"Name": "ClonerEffector",
 			"Enabled": true
+		},
+		{
+			"Name": "StructUtils",
+			"Enabled": true
 		}
 	]
 }

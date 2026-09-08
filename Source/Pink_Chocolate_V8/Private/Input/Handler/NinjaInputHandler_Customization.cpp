@@ -3,6 +3,8 @@
 #include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystemComponent.h"
 #include "Components/NinjaInputManagerComponent.h"
+#include "GameFramework/Controller.h"
+#include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerState.h"
 
 UNinjaInputHandler_Customization::UNinjaInputHandler_Customization()

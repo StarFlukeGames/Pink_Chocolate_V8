@@ -6,7 +6,7 @@ public class Pink_Chocolate_V8 : ModuleRules
 {
 	public Pink_Chocolate_V8(ReadOnlyTargetRules Target) : base(Target)
 	{
-		CppStandard = CppStandardVersion.Cpp20;
+		CppStandard = CppStandardVersion.Cpp23;
 		
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
@@ -23,7 +23,8 @@ public class Pink_Chocolate_V8 : ModuleRules
 			"ItemDataRuntime",
 			"GlobalEvents",
 			"Attributes",
-			"ActionsExtension"
+			"ActionsExtension",
+			"StructUtils"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
