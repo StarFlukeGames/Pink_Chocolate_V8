@@ -1,0 +1,10 @@
+OptionId,CategoryTag,#InternalNotes,_DeveloperCalculations,OptionType,AssetPath
+FName,FGameplayTag,FString,float,EPCOptionType,TSoftObjectPtr<UObject>
+Key,Required,Hide,Hide,Required,Default=None
+Head_Red,Cosmetic.Category.Head,Draft item - do not polish,=SUM(C4:C5),Material,/Game/PinkChoco/Materials/M_Head_Red.M_Head_Red
+#Head_Blue,Cosmetic.Category.Head,Omit from Release A,1.5,Material,/Game/PinkChoco/Materials/M_Head_Blue.M_Head_Blue
+Thrust_Blue,Cosmetic.Category.Thrust,Base flight VFX,2.2,NiagaraSystem,/Game/PinkChoco/VFX/NS_Thrust_Blue.NS_Thrust_Blue
+Thrust_Ion,Cosmetic.Category.Thrust,Ion drive VFX,3.0,NiagaraSystem,/Game/PinkChoco/VFX/NS_Thrust_Ion.NS_Thrust_Ion
+Char_ChaiA,Character.Category.Roster,Standard Courier,4.1,CharacterClass,/Game/PinkChoco/Blueprints/BP_Chai_Girl_A.BP_Chai_Girl_A_C
+Char_ChaiB,Character.Category.Roster,Heavy Duty Courier,5.2,CharacterClass,/Game/PinkChoco/Blueprints/BP_Chai_Girl_B.BP_Chai_Girl_B_C
+Attachment_Standard,Cosmetic.Category.Attachment,Modular pack base,1.0,BlueprintWrapper,/Game/PinkChoco/Blueprints/BP_Attachment_Standard.BP_Attachment_Standard_C

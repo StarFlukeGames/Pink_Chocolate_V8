@@ -17,7 +17,7 @@ concept UObjectDerived = std::is_base_of_v<UObject, T>;
 
 /**
  * EPCOptionType
- * Specifies the underlying asset class of the polymorphic Soft Path [cite: 26].
+ * Specifies the underlying asset class of the polymorphic Soft Path.
  */
 UENUM(BlueprintType)
 enum class EPCOptionType : uint8
@@ -31,8 +31,8 @@ enum class EPCOptionType : uint8
 
 /**
  * FPCOptionItem
- * Collapsed, non-verbose option structure with a single polymorphic soft asset path [cite: 26].
- * Replaced in memory during bulk ingestion via the generic reflection-driven pipeline [cite: 2].
+ * Collapsed, non-verbose option structure with a single polymorphic soft asset path.
+ * Replaced in memory during bulk ingestion via the generic reflection-driven pipeline.
  */
 USTRUCT(BlueprintType)
 struct PINK_CHOCOLATE_V8_API FPCOptionItem
@@ -46,8 +46,8 @@ struct PINK_CHOCOLATE_V8_API FPCOptionItem
     FText DisplayName;
 
     /**
-     * Polymorphic asset pointer. Points to materials, meshes, Niagara emitters, or classes [cite: 26].
-     * Avoids verbose parallel pointer definitions by resolving path dynamically at runtime [cite: 2].
+     * Polymorphic asset pointer. Points to materials, meshes, Niagara emitters, or classes.
+     * Avoids verbose parallel pointer definitions by resolving path dynamically at runtime.
      */
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sovereign Customization | Option")
     FSoftObjectPath AssetPath;
@@ -55,12 +55,22 @@ struct PINK_CHOCOLATE_V8_API FPCOptionItem
     [[nodiscard]] bool IsValid() const noexcept
     {
         return !OptionId.IsNone() && AssetPath.IsValid();
+    }/**
+     * Inline friend operator enables Argument-Dependent Lookup (ADL)
+     * across all FArchive derivatives, including FMemoryReader and FMemoryWriter.
+     */
+    friend FArchive& operator<<(FArchive& Ar, FPCOptionItem& Item)
+    {
+        Ar << Item.OptionId;
+        Ar << Item.DisplayName;
+        Ar << Item.AssetPath;
+        return Ar;
     }
 };
 
 /**
  * FPCCategoryDefinition
- * Pairs an extensible tag category with its type constraint and option set [cite: 26].
+ * Pairs an extensible tag category with its type constraint and option set.
  */
 USTRUCT(BlueprintType)
 struct PINK_CHOCOLATE_V8_API FPCCategoryDefinition
@@ -78,4 +88,12 @@ struct PINK_CHOCOLATE_V8_API FPCCategoryDefinition
 
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sovereign Customization | Category")
     TArray<FPCOptionItem> Options;
+    
+    friend FArchive& operator<<(FArchive& Ar, FPCCategoryDefinition& Category)
+    {
+        Ar << Category.CategoryTag;
+        Ar << Category.DisplayName;
+        Ar << Category.Options; // Recursively invokes FPCOptionItem operator<<
+        return Ar;
+    }
 };

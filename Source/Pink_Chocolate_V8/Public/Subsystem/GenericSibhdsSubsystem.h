@@ -1,66 +1,88 @@
-// Copyright (c) StarFluke Fallen World. All Rights Reserved.
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Subsystems/GameInstanceSubsystem.h"
-
-// Standard C++23 headers MUST be included BEFORE .generated.h
+#include "Subsystems/EngineSubsystem.h"
+#include "Serialization/MemoryReader.h"
+#include "Serialization/MemoryWriter.h"
+// #include "PCCustomizationTypes.h" // Contains FPinkChocolateSchemaBinaryEnvelope
 #include <expected>
-#include <optional>
 #include <string_view>
-#include <concepts>
+#include "GenericSibhdsSubsystem.generated.h"
 
-#include "GenericSibhdsSubsystem.generated.h" // Must be the absolute last include
-
-/**
- * Reflected error enum for Blueprint and UHT recognition.
- * Declared outside the class so UHT generates Z_Construct_UEnum properly.
- */
+/** SIBHDS Data Error Codes */
 UENUM(BlueprintType)
 enum class EGenericDataError : uint8
 {
-    None        UMETA(DisplayName = "None"),
-    NotFound    UMETA(DisplayName = "Not Found"),
-    InvalidData UMETA(DisplayName = "Invalid Data"),
-    Unknown     UMETA(DisplayName = "Unknown Error")
+    None            UMETA(DisplayName = "None"),
+    NotFound        UMETA(DisplayName = "Not Found"),
+    InvalidData     UMETA(DisplayName = "Invalid Data"),
+    ReadFailure     UMETA(DisplayName = "Read Failure")
 };
 
 /**
  * UGenericSibhdsSubsystem
+ * Subsystem governing INI-Binary hybrid data ingestion and binary envelope persistence.
  */
-UCLASS(Blueprintable, BlueprintType)
-class PINK_CHOCOLATE_V8_API UGenericSibhdsSubsystem : public UGameInstanceSubsystem
+UCLASS()
+class PINK_CHOCOLATE_V8_API UGenericSibhdsSubsystem : public UEngineSubsystem
 {
     GENERATED_BODY()
 
 public:
     UGenericSibhdsSubsystem();
 
-    // ------------------------------------------------------------------------
-    // 1. Blueprint-Exposed Interface (UHT Compatible Types Only)
-    // ------------------------------------------------------------------------
+    // ========================================================================
+    // C++23 MONADIC & TEMPLATE API (NO UFUNCTION MACROS)
+    // ========================================================================
 
-    /** Blueprint wrapper returning UObject pointer safely */
-    UFUNCTION(BlueprintCallable, Category = "SIBHDS Subsystem")
-    UObject* GetSubsystemData(const FString& DataKey);
-
-    /** Blueprint wrapper for error status check */
-    UFUNCTION(BlueprintPure, Category = "SIBHDS Subsystem")
-    bool HasDataError(EGenericDataError ErrorCode) const;
-
-    // ------------------------------------------------------------------------
-    // 2. Safe C++23 Pure Native Interface (NO UFUNCTION / UPROPERTY MACROS!)
-    // ------------------------------------------------------------------------
-
-    /** Safe C++23 transactional method using std::expected (Hidden from UHT) */
+    /**
+     * Native C++23 monadic data resolution pipeline.
+     * MUST NOT be marked with UFUNCTION().
+     */
     std::expected<UObject*, EGenericDataError> FetchDataNative(std::string_view DataKey) noexcept;
 
-    /** Safe C++23 concept-constrained helper (Hidden from UHT) */
+    /**
+     * Pure C++ template serialization for SIBHDS schema envelopes.
+     * MUST NOT be marked with UFUNCTION().
+     */
     template <typename T>
-    requires std::derived_from<T, UObject>
-    T* ResolveDataTyped(std::string_view DataKey)
+    bool SerializeEnvelope(const T& InSchema, TArray<uint8>& OutBinaryBuffer)
     {
-        UObject* RawObj = GetSubsystemData(FString(DataKey.data()));
-        return Cast<T>(RawObj);
+        FMemoryWriter Writer(OutBinaryBuffer, true);
+        Writer << const_cast<T&>(InSchema);
+        return OutBinaryBuffer.Num() > 0;
     }
+
+    /**
+     * Pure C++ template deserialization using ADL operator<<.
+     * MUST NOT be marked with UFUNCTION().
+     */
+    template <typename T>
+    bool DeserializeEnvelope(const TArray<uint8>& InBinaryBuffer, T& OutSchema)
+    {
+        if (InBinaryBuffer.IsEmpty())
+        {
+            return false;
+        }
+
+        FMemoryReader Reader(InBinaryBuffer, true);
+        Reader << OutSchema; // Resolves friend FArchive& operator<< via ADL
+        return true;
+    }
+
+    // ========================================================================
+    // BLUEPRINT REFLECTION BOUNDARY (UHT / UFUNCTION APPROVED)
+    // ========================================================================
+
+    /**
+     * Reflection wrapper exposing C++23 monadic fetch to Blueprints.
+     */
+    UFUNCTION(BlueprintCallable, Category = "SIBHDS | Subsystem")
+    UObject* GetSubsystemData(const FString& DataKey);
+
+    /**
+     * Error checking helper for Blueprint graphs.
+     */
+    UFUNCTION(BlueprintPure, Category = "SIBHDS | Subsystem")
+    bool HasDataError(EGenericDataError ErrorCode) const;
 };

@@ -6,15 +6,11 @@
 #include "AbilitySystemComponent.h"
 #include "CustomizationAttributeSet.generated.h"
 
-#define ATTRIBUTE_ACCESSORS(ClassName, PropertyName) \
-    GAMEPLAYATTRIBUTE_PROPERTY_GETTER(ClassName, PropertyName) \
-    GAMEPLAYATTRIBUTE_VALUE_GETTER(PropertyName) \
-    GAMEPLAYATTRIBUTE_VALUE_SETTER(PropertyName) \
-    GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
+#define ATTRIBUTE_ACCESSORS(ClassName, PropertyName)     GAMEPLAYATTRIBUTE_PROPERTY_GETTER(ClassName, PropertyName)     GAMEPLAYATTRIBUTE_VALUE_GETTER(PropertyName)     GAMEPLAYATTRIBUTE_VALUE_SETTER(PropertyName)     GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
 
 /**
  * UCustomizationAttributeSet
- * Exposes cosmetic index attributes to the Gameplay Ability System [cite: 26].
+ * Exposes cosmetic index attributes to the Gameplay Ability System.
  */
 UCLASS()
 class PINK_CHOCOLATE_V8_API UCustomizationAttributeSet : public UAttributeSet
