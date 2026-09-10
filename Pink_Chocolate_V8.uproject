@@ -7,19 +7,13 @@
 		{
 			"Name": "Pink_Chocolate_V8",
 			"Type": "Runtime",
-			"LoadingPhase": "Default",
-			"AdditionalDependencies": [
-				"Engine"
-			]
+			"LoadingPhase": "Default"
 		}
 	],
 	"Plugins": [
 		{
 			"Name": "ModelingToolsEditorMode",
-			"Enabled": true,
-			"TargetAllowList": [
-				"Editor"
-			]
+			"Enabled": true
 		},
 		{
 			"Name": "GameplayStateTree",
@@ -47,8 +41,7 @@
 		},
 		{
 			"Name": "Anchorpoint",
-			"Enabled": false,
-			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/a1f11a3c-1b51-4417-9e2a-4ec1e60f7e67"
+			"Enabled": false
 		},
 		{
 			"Name": "DataSerialization",
@@ -235,8 +228,7 @@
 		},
 		{
 			"Name": "AutoFootstep",
-			"Enabled": false,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/66cea07913a248bba0ada8dd73c809b9"
+			"Enabled": false
 		},
 		{
 			"Name": "AutoSizeComments",
@@ -250,26 +242,23 @@
 		},
 		{
 			"Name": "CapsuleTraceRotation",
-			"Enabled": false,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/1abd5424c39d426c81068388a39a61c3"
+			"Enabled": false
 		},
 		{
 			"Name": "ChannelMachine",
 			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/1203c14fac16490bacab6a7d3577edff",
 			"SupportedTargetPlatforms": [
 				"Win64"
-			]
+			],
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/1203c14fac16490bacab6a7d3577edff"
 		},
 		{
 			"Name": "Charon",
-			"Enabled": false,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/b4231a79707e491ba96b9842d971e6f4"
+			"Enabled": false
 		},
 		{
 			"Name": "CheckAppInstance",
-			"Enabled": false,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/6a008b19e3ab40fba3f35125fc871373"
+			"Enabled": false
 		},
 		{
 			"Name": "ControlFlows",
@@ -304,13 +293,11 @@
 		},
 		{
 			"Name": "FastNoiseGenerator",
-			"Enabled": false,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/527737f42da544e9abf8607a40495fbd"
+			"Enabled": false
 		},
 		{
 			"Name": "FlyTo",
-			"Enabled": false,
-			"MarketplaceURL": "https://www.fab.com/listings/41f46910-029a-49cb-9d21-629e89febfcb"
+			"Enabled": false
 		},
 		{
 			"Name": "GameManagers",
@@ -327,8 +314,7 @@
 		},
 		{
 			"Name": "ImageResizUEr",
-			"Enabled": false,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/670be04026664663875aadd4dea45b9d"
+			"Enabled": false
 		},
 		{
 			"Name": "IniConfig",
@@ -341,13 +327,11 @@
 		},
 		{
 			"Name": "LGUI",
-			"Enabled": false,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/92c868e93e1d4dd596f87b200102f0cf"
+			"Enabled": false
 		},
 		{
 			"Name": "LightExplorer",
-			"Enabled": false,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/4dc7591f494343f1ae6cac5192bb1f62"
+			"Enabled": false
 		},
 		{
 			"Name": "LowEntryExtStdLib",
@@ -472,6 +456,14 @@
 		{
 			"Name": "StructUtils",
 			"Enabled": true
+		},
+		{
+			"Name": "VisualStudioTools",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64"
+			],
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/362651520df94e4fa65492dbcba44ae2"
 		}
 	]
 }
