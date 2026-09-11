@@ -293,7 +293,8 @@
 		},
 		{
 			"Name": "FastNoiseGenerator",
-			"Enabled": false
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/527737f42da544e9abf8607a40495fbd"
 		},
 		{
 			"Name": "FlyTo",
@@ -472,6 +473,20 @@
 		{
 			"Name": "ActorModifierCore",
 			"Enabled": true
+		},
+		{
+			"Name": "JsonBlueprintUtilities",
+			"Enabled": true
+		},
+		{
+			"Name": "ScreenFade",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/c3edf2a04e0b4ec5a3940a4c35268972"
+		},
+		{
+			"Name": "TeamManager",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/846044af1208492ab99dfffacbd5161b"
 		}
 	]
 }
