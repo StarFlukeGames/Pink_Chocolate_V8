@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "GameplayTagContainer.h"
+
 UGenericSibhdsSubsystem::UGenericSibhdsSubsystem()
 {
 }
@@ -36,4 +38,17 @@ UObject* UGenericSibhdsSubsystem::GetSubsystemData(const FString& DataKey)
 bool UGenericSibhdsSubsystem::HasDataError(EGenericDataError ErrorCode) const
 {
 	return ErrorCode != EGenericDataError::None;
+}
+
+int32 UGenericSibhdsSubsystem::GetMaxOptionsForCategory(FGameplayTag CategoryTag) const
+{
+	return 0;
+	// Rehydrate if query occurs before Initialize or after cache invalidation
+	if (CachedRoster.IsEmpty())
+	{
+		const_cast<UGenericSibhdsSubsystem*>(this)->IngestAndRehydrateRoster();
+	}
+	
+	auto CategoryOpt = FindCategoryByTag(CategoryTag);
+	return CategoryOpt.has_value() ? CategoryOpt->Options.Num() : 0;
 }

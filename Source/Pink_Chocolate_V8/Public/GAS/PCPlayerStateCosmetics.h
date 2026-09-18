@@ -14,6 +14,9 @@ USTRUCT(BlueprintType)
 struct FPCCosmeticSelection
 {
     GENERATED_BODY()
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Customization")
+    FGameplayTag CharacterTag; // Identifies specific character in roster
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Customization")
     FGameplayTag CategoryTag;

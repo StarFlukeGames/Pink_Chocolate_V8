@@ -7,6 +7,8 @@
 // #include "PCCustomizationTypes.h" // Contains FPinkChocolateSchemaBinaryEnvelope
 #include <expected>
 #include <string_view>
+
+#include "GameplayTagContainer.h"
 #include "GenericSibhdsSubsystem.generated.h"
 
 /** SIBHDS Data Error Codes */
@@ -85,4 +87,7 @@ public:
      */
     UFUNCTION(BlueprintPure, Category = "SIBHDS | Subsystem")
     bool HasDataError(EGenericDataError ErrorCode) const;
+    
+    UFUNCTION(BlueprintPure, Category = "SIBHDS | Subsystem")
+    int32 GetMaxOptionsForCategory(FGameplayTag CategoryTag) const;
 };
