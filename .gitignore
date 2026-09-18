@@ -57,8 +57,8 @@ out/
 # --- Built map/asset data (regenerated, don't version) ---
 *_BuiltData.uasset
 
-# --- Personal editor settings (not shared) ---
-Config/DefaultEditorPerProjectUserSettings.ini
+# --- Personal editor settings (shared for all users) ---
+# Config/DefaultEditorPerProjectUserSettings.ini
 
 # --- Exclude ALL Engine and third-party Plugins entirely ---
 Engine/
