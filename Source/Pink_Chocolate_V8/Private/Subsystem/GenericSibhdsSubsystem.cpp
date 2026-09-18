@@ -44,11 +44,11 @@ int32 UGenericSibhdsSubsystem::GetMaxOptionsForCategory(FGameplayTag CategoryTag
 {
 	return 0;
 	// Rehydrate if query occurs before Initialize or after cache invalidation
-	if (CachedRoster.IsEmpty())
-	{
-		const_cast<UGenericSibhdsSubsystem*>(this)->IngestAndRehydrateRoster();
-	}
-	
-	auto CategoryOpt = FindCategoryByTag(CategoryTag);
-	return CategoryOpt.has_value() ? CategoryOpt->Options.Num() : 0;
+	// if (CachedRoster.IsEmpty())
+	// {
+	// 	const_cast<UGenericSibhdsSubsystem*>(this)->IngestAndRehydrateRoster();
+	// }
+	//
+	// auto CategoryOpt = FindCategoryByTag(CategoryTag);
+	// return CategoryOpt.has_value() ? CategoryOpt->Options.Num() : 0;
 }
