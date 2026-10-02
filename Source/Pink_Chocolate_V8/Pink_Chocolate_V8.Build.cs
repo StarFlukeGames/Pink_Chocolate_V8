@@ -24,7 +24,9 @@ public class Pink_Chocolate_V8 : ModuleRules
 			"CommonInput",
 			"DeveloperSettings",
 			"StructUtils",
-			"AssetRegistry"
+			"AssetRegistry",
+			"Slate",     // Added for Slate UI framework
+			"SlateCore"  // Added to resolve FSlateFontInfo & Slate struct symbols
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {
