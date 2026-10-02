@@ -15,7 +15,7 @@ public class Pink_Chocolate_V8 : ModuleRules
 			"Core",
 			"CoreUObject",
 			"Engine",
-			"InputCore", 
+			"InputCore",
 			"EnhancedInput",
 			"GameplayTags",
 			"GameplayAbilities",
@@ -23,30 +23,35 @@ public class Pink_Chocolate_V8 : ModuleRules
 			"CommonUI",
 			"CommonInput",
 			"DeveloperSettings",
+			"StructUtils",
+			"AssetRegistry"
+		});
+
+		PrivateDependencyModuleNames.AddRange(new string[] {
+			// Visual & System Extensions
 			"Niagara",
-			"AssetRegistry",
-			"NinjaInput",
-			"NinjaGAS",
 			"GlobalEvents",
 			"Attributes",
-			"SaveExtension",
 			"ActionsExtension",
 			"FactionsExtension",
-			"StructUtils",
-			
-			// Generic Game System Sub-Modules
+			"SaveExtension",
+
+			// Generic Game System (GGS) Stack
 			"GenericGameSystem",
 			"GenericSettingsSystem",
 			"GenericEffectsSystem",
 			"GenericUISystem",
 
-			// Ecosystem Plugins
-			"Glyphic",
+			// Input, Gameplay Abilities & Item Infrastructure
+			"NinjaInput",
 			"NinjaGAS",
-			"ItemDataRuntime"
-		});
+			"ItemDataRuntime",
 
-		PrivateDependencyModuleNames.AddRange(new string[] {  });
+			// Presentation, UI & Audio
+			"Glyphic",
+			"Sonant",
+			"EasyMultiSave"
+		});
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
