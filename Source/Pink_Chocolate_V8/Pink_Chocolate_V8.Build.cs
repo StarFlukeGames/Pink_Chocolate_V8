@@ -12,19 +12,38 @@ public class Pink_Chocolate_V8 : ModuleRules
 	
 		PublicDependencyModuleNames.AddRange(new string[]
 		{
-			"Core", "CoreUObject", "Engine", "InputCore", 
-			"Niagara",
-			"AssetRegistry",
-			"GameplayAbilities",
+			"Core",
+			"CoreUObject",
+			"Engine",
+			"InputCore", 
 			"EnhancedInput",
 			"GameplayTags",
+			"GameplayAbilities",
+			"GameplayTasks",
+			"CommonUI",
+			"CommonInput",
+			"DeveloperSettings",
+			"Niagara",
+			"AssetRegistry",
 			"NinjaInput",
 			"NinjaGAS",
-			"ItemDataRuntime",
 			"GlobalEvents",
 			"Attributes",
+			"SaveExtension",
 			"ActionsExtension",
-			"StructUtils"
+			"FactionsExtension",
+			"StructUtils",
+			
+			// Generic Game System Sub-Modules
+			"GenericGameSystem",
+			"GenericSettingsSystem",
+			"GenericEffectsSystem",
+			"GenericUISystem",
+
+			// Ecosystem Plugins
+			"Glyphic",
+			"NinjaGAS",
+			"ItemDataRuntime"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });

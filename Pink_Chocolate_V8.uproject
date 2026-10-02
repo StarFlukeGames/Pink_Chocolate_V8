@@ -487,6 +487,15 @@
 			"Name": "TeamManager",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/846044af1208492ab99dfffacbd5161b"
+		},
+		{
+			"Name": "GenericGameSystem",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/6904d4d1-c7af-4973-b10e-a88c4436dab5"
+		},
+		{
+			"Name": "PCG",
+			"Enabled": false
 		}
 	]
 }
