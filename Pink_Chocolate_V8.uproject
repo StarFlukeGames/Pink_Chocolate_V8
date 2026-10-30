@@ -515,5 +515,8 @@
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/9162ef10-f86b-4d3c-84db-ada2ada589a9"
 		}
+	],
+	"TargetPlatforms": [
+		"Windows"
 	]
 }
