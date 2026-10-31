@@ -490,7 +490,7 @@
 		},
 		{
 			"Name": "GenericGameSystem",
-			"Enabled": true,
+			"Enabled": false,
 			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/6904d4d1-c7af-4973-b10e-a88c4436dab5"
 		},
 		{
