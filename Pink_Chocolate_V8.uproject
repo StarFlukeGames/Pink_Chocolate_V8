@@ -279,7 +279,7 @@
 		},
 		{
 			"Name": "EstapeTools",
-			"Enabled": true,
+			"Enabled": false,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/e1a5a090592c454c816b40452e8cc8de"
 		},
 		{
@@ -429,7 +429,7 @@
 		},
 		{
 			"Name": "WinUtilities",
-			"Enabled": true,
+			"Enabled": false,
 			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/8366816a-335d-451eb128-5de9d720055f"
 		},
 		{
@@ -514,6 +514,18 @@
 			"Name": "RNG3",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/9162ef10-f86b-4d3c-84db-ada2ada589a9"
+		},
+		{
+			"Name": "GameFeatures",
+			"Enabled": true
+		},
+		{
+			"Name": "AbilitySystemGameFeatureActions",
+			"Enabled": true
+		},
+		{
+			"Name": "TargetingSystem",
+			"Enabled": true
 		}
 	],
 	"TargetPlatforms": [
